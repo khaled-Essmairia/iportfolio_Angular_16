@@ -18,20 +18,39 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy {
 
   private isotope?: Isotope;
   private lightbox?: ReturnType<typeof GLightbox>;
+  private readonly onWindowLoad = () => this.isotope?.layout();
 
   constructor(private portfolioData: PortfolioDataService) { }
 
   ngAfterViewInit(): void {
     // Let Angular finish rendering the *ngFor items before Isotope scans the DOM
     setTimeout(() => {
-      this.isotope = new Isotope(this.portfolioContainerRef.nativeElement, {
+      const container = this.portfolioContainerRef.nativeElement;
+
+      this.isotope = new Isotope(container, {
         itemSelector: '.portfolio-item'
       });
       this.lightbox = GLightbox({ selector: '.portfolio-lightbox' });
+
+      // Re-layout each time an image finishes loading
+      container.querySelectorAll('img').forEach((img: HTMLImageElement) => {
+        if (!img.complete) {
+          img.addEventListener('load', () => this.isotope?.layout(), { once: true });
+          img.addEventListener('error', () => this.isotope?.layout(), { once: true });
+        }
+      });
+
+      // Safety net: once the whole page (images, fonts, CSS) has loaded
+      if (document.readyState === 'complete') {
+        this.isotope.layout();
+      } else {
+        window.addEventListener('load', this.onWindowLoad);
+      }
     });
   }
 
   ngOnDestroy(): void {
+    window.removeEventListener('load', this.onWindowLoad);
     this.isotope?.destroy();
     this.lightbox?.destroy();
   }
