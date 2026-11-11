@@ -1,0 +1,6 @@
+/* Global style overrides can go here.
+   The bulk of the template styling lives in assets/css/style.css
+   (loaded via angular.json) so it can be edited independently of Angular. */
+html {
+  scroll-behavior: smooth;
+}

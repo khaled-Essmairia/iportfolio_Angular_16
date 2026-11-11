@@ -1,0 +1,32 @@
+<section id="portfolio" class="portfolio section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Portfolio</h2>
+      <p>I dedicate significant effort to optimizing code performance and ensuring seamless user experiences. Below are some of the projects I have worked on, showcasing my ability to navigate the complexities of software development and deliver tangible results.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="portfolio-flters">
+          <li [class.filter-active]="activeFilter === 'all'" (click)="setFilter('all')">All</li>
+          <li [class.filter-active]="activeFilter === 'web'" (click)="setFilter('web')">Web</li>
+          <li [class.filter-active]="activeFilter === 'platform'" (click)="setFilter('platform')">Platform</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row portfolio-container" #portfolioContainer>
+      <div class="col-lg-4 col-md-6 portfolio-item" [class.filter-web]="item.category === 'web'" [class.filter-platform]="item.category === 'platform'" *ngFor="let item of items; let i = index">
+        <div class="portfolio-wrap">
+          <img [src]="item.image" class="img-fluid" alt="">
+          <div class="portfolio-links">
+            <a [href]="item.image" data-gallery="portfolioGallery" class="portfolio-lightbox" [title]="item.title"><i class="bx bx-plus"></i></a>
+            <a [routerLink]="['/portfolio', item.id]" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Portfolio Section -->

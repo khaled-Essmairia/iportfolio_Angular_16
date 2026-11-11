@@ -1,0 +1,43 @@
+<section id="skills" class="skills section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Skills</h2>
+      <p>My core stack is Java and Spring Boot, applied to microservices, event-driven architectures, security and DevOps in banking and fintech projects, with Angular and TypeScript on the front end.</p>
+    </div>
+
+    <div class="row skills-content" #skillsContent>
+
+      <div class="col-lg-6">
+        <div class="progress" *ngFor="let skill of columnOne">
+          <span class="skill">{{ skill.name }} <i class="val">{{ skill.value }}%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" [style.width.%]="animated ? skill.value : 0" [attr.aria-valuenow]="skill.value" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="progress" *ngFor="let skill of columnTwo">
+          <span class="skill">{{ skill.name }} <i class="val">{{ skill.value }}%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" [style.width.%]="animated ? skill.value : 0" [attr.aria-valuenow]="skill.value" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="progress" *ngFor="let skill of columnThree">
+          <span class="skill">{{ skill.name }} <i class="val">{{ skill.value }}%</i></span>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar" role="progressbar" [style.width.%]="animated ? skill.value : 0" [attr.aria-valuenow]="skill.value" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Skills Section -->

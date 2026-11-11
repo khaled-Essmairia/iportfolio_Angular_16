@@ -1,0 +1,20 @@
+<section id="facts" class="facts">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Facts</h2>
+      <p>I take pride in delivering results that exceed expectations. Whether working on complex systems or collaborating with dynamic teams, my dedication to problem-solving and efficiency drives everything I do.</p>
+    </div>
+
+    <div class="row no-gutters">
+      <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" *ngFor="let fact of facts">
+        <div class="count-box">
+          <i [class]="fact.icon"></i>
+          <span [attr.data-purecounter-start]="0" [attr.data-purecounter-end]="fact.end" data-purecounter-duration="1" class="purecounter"></span>
+          <p><strong>{{ fact.label }}</strong></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Facts Section -->

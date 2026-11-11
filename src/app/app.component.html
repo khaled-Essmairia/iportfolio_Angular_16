@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<main id="main">
+  <router-outlet *ngIf="isPortfolioDetails"></router-outlet>
+  <ng-container *ngIf="!isPortfolioDetails">
+    <app-home></app-home>
+    <app-about></app-about>
+    <app-resume></app-resume>
+    <app-skills></app-skills>
+    <app-facts></app-facts>
+    <app-portfolio></app-portfolio>
+    <app-contact></app-contact>
+  </ng-container>
+</main>
+
+<app-footer></app-footer>

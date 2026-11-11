@@ -1,0 +1,25 @@
+<i class="bi bi-list mobile-nav-toggle d-xl-none" [class.bi-x]="mobileNavOpen" (click)="toggleMobileNav()"></i>
+
+<header id="header">
+  <div class="d-flex flex-column">
+    <div class="profile">
+      <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+      <h1 class="text-light"><a routerLink="/home">Essmairia Khaled</a></h1>
+      <div class="social-links mt-3 text-center">
+        <a href="https://twitter.com/EssmairiaK" target="_blank" rel="noopener" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/khaled.smari.505" target="_blank" rel="noopener" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/essmairia-khaled-4695711ba/" target="_blank" rel="noopener" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+
+    <nav id="navbar" class="nav-menu navbar">
+      <ul>
+        <li *ngFor="let link of navLinks">
+          <a [href]="'/#' + link.anchor" class="nav-link" (click)="onNavClick()">
+            <i [class]="link.icon"></i> <span>{{ link.label }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav><!-- .nav-menu -->
+  </div>
+</header><!-- End Header -->

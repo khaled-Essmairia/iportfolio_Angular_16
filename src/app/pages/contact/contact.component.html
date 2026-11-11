@@ -1,0 +1,60 @@
+<section id="contact" class="contact">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Feel free to contact me anytime.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-stretch">
+        <div class="info">
+          <div class="address">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Location:</h4>
+            <p>Ariana- Tunis</p>
+          </div>
+
+          <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p>essmairia.kaled&#64;gmail.com</p>
+          </div>
+
+          <div class="phone">
+            <i class="bi bi-phone"></i>
+            <h4>Call:</h4>
+            <p>+216 46 25 25 37</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 d-flex align-items-stretch">
+        <form class="php-email-form w-100" #contactForm="ngForm" (ngSubmit)="submitForm()">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your name"
+                [(ngModel)]="form.name" required>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="email" name="email" class="form-control" placeholder="Your email"
+                [(ngModel)]="form.email" required email>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" class="form-control" placeholder="Subject"
+              [(ngModel)]="form.subject" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" class="form-control" rows="10" placeholder="Message"
+              [(ngModel)]="form.message" required></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section><!-- End Contact Section -->
